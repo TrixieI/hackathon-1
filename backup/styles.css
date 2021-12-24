@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.card {
+  display: inline-block;
+  padding: 10px;
+  background-color: brown;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+}
+
+img {
+  height: 200px;
+  width: 150px;
+  border: 5px solid black;
+  cursor: pointer;
+  position: absolute;
+}
+
+img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
