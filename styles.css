@@ -58,3 +58,16 @@ body {
   -ms-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
 }
+
+h1,
+h2 {
+  color: white;
+}
+
+.credits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 250px;
+}

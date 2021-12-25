@@ -13,7 +13,7 @@ let array = [
   "/hackathon-1/images/elon.jpeg", // 11
 ];
 
-arrangeCard();
+// arrangeCard();
 
 let cardClicked;
 let cardsSelected = [];
@@ -56,6 +56,13 @@ function checkForMatch() {
     cardsSelected = [];
     if (score == 6) {
       alert("YOU WON!");
+      let text =
+        "Do you want to play again? \n clicking cancel will redirect you to the credits screen";
+      if (confirm(text) == true) {
+        location.reload();
+      } else {
+        window.location.replace("/hackathon-1/credits.html");
+      }
     }
   } else {
     alert("Mismatch!");
