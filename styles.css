@@ -19,13 +19,17 @@ body {
   transform: rotateY(180deg);
 }
 
+.flipAgain {
+  transform: rotateY(180deg);
+}
+
 .card {
   margin: 20px;
   display: inline-block;
   background-color: brown;
   background-size: cover;
   background-repeat: no-repeat;
-  max-width: 50%;
+  max-width: 43%;
   max-height: 100%;
   position: relative;
   transform-style: preserve-3d;
@@ -70,4 +74,14 @@ h2 {
   justify-content: center;
   flex-direction: column;
   margin-top: 250px;
+}
+
+.score {
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
