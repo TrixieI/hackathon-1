@@ -17,8 +17,9 @@ arrangeCard();
 
 let cardClicked;
 let cardsSelected = [];
-let cardsId = [];
 let score = 0;
+let scoreTab = document.querySelector(".score");
+scoreTab.innerHTML = `Score: ${score}`;
 
 let container = document.querySelector(".container");
 for (let i = 0; i < 12; i++) {
@@ -42,7 +43,6 @@ let cards = document.querySelectorAll("div");
 function flip(e) {
   this.classList.toggle("flip");
   let selected = this.dataset.id;
-  console.log(selected);
   cardsSelected.push(array[selected]);
   if (cardsSelected.length === 2) {
     setTimeout(checkForMatch, 500);
@@ -53,11 +53,12 @@ function checkForMatch() {
   if (cardsSelected[0] === cardsSelected[1]) {
     alert("Match!");
     score++;
+    scoreTab.innerHTML = `Score: ${score}`;
     cardsSelected = [];
     if (score == 6) {
       alert("YOU WON!");
       let text =
-        "Do you want to play again? \n clicking cancel will redirect you to the credits screen";
+        "Do you want to play again? \nClicking cancel will redirect you to the credits screen";
       if (confirm(text) == true) {
         location.reload();
       } else {
@@ -66,7 +67,8 @@ function checkForMatch() {
     }
   } else {
     alert("Mismatch!");
-    score--;
+    score = 0;
+    scoreTab.innerHTML = `Score: ${score}`;
     for (let loop of cards) {
       loop.classList.remove("flip");
     }
