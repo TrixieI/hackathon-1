@@ -13,7 +13,7 @@ let array = [
   "/hackathon-1/images/elon.jpeg", // 11
 ];
 
-// arrangeCard();
+arrangeCard();
 
 let cardClicked;
 let cardsSelected = [];
