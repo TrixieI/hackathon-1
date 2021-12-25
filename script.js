@@ -13,40 +13,59 @@ let array = [
   "/hackathon-1/images/elon.jpeg", // 11
 ];
 
-let card1;
-let card2;
+arrangeCard();
+
 let cardClicked;
+let cardsSelected = [];
+let cardsId = [];
+let score = 0;
 
 let container = document.querySelector(".container");
 for (let i = 0; i < 12; i++) {
   let card = document.createElement("div");
   card.addEventListener("click", flip);
   card.classList.add("card");
+  card.setAttribute("data-id", [i]);
   container.appendChild(card);
   let front = document.createElement("img");
   let back = document.createElement("img");
   front.classList.add("front");
   back.classList.add("back");
-  back.classList.add([i]);
-  front.classList.add([i]);
-  front.addEventListener("mouseleave", click2);
   front.src = array[i];
   back.src = "/hackathon-1/images/backcover.jpeg";
   card.appendChild(front);
   card.appendChild(back);
 }
 
+let cards = document.querySelectorAll("div");
+
 function flip(e) {
   this.classList.toggle("flip");
-  card1 = e.target.classList[1];
-  console.log(card1);
-  cardClicked = true;
-  //   prompt("Who's the person behind the card?");
+  let selected = this.dataset.id;
+  console.log(selected);
+  cardsSelected.push(array[selected]);
+  if (cardsSelected.length === 2) {
+    setTimeout(checkForMatch, 500);
+  }
 }
 
-function click2(e) {
-  if (cardClicked == true) {
-    card2 = e.target.classList[1];
-    console.log(card2);
+function checkForMatch() {
+  if (cardsSelected[0] === cardsSelected[1]) {
+    alert("Match!");
+    score++;
+    cardsSelected = [];
+    if (score == 6) {
+      alert("YOU WON!");
+    }
+  } else {
+    alert("Mismatch!");
+    for (let loop of cards) {
+      loop.classList.remove("flip");
+    }
+    cardsSelected = [];
   }
+}
+
+function arrangeCard() {
+  array.sort(() => 0.5 - Math.random());
 }
