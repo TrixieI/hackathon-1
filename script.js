@@ -66,6 +66,7 @@ function checkForMatch() {
     }
   } else {
     alert("Mismatch!");
+    score--;
     for (let loop of cards) {
       loop.classList.remove("flip");
     }
